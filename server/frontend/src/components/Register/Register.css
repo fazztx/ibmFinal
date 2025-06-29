@@ -42,6 +42,7 @@
   color: rgb(97, 64, 128);
   border-radius: 10px;
   height:50px;
+  width: 500px;
 }
 
 .submit:hover {

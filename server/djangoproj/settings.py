@@ -62,7 +62,11 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR,'frontend/static') #To recognize the fron-end static files
+            os.path.join(BASE_DIR,'frontend/static'), #To recognize the fron-end static files
+
+             #After running npm install, then npm run build...
+            os.path.join(BASE_DIR, 'frontend/build'),           #We must include both html folder -> 'frontend/build'
+            os.path.join(BASE_DIR, 'frontend/build/static'),    #And JS & CSS folder -> frontend/build/static 
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -137,6 +141,8 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'frontend/static') #To look/find the front-end static files
+    os.path.join(BASE_DIR,'frontend/static'), #To look/find the front-end static files
+    os.path.join(BASE_DIR, 'frontend/build'), #In practical terms, in urls.py the html can be referenced without the path
+    os.path.join(BASE_DIR, 'frontend/build/static'),
 ]
 

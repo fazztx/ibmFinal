@@ -9,10 +9,10 @@ const Login = ({ onClose }) => {
   const [password, setPassword] = useState("");
   const [open,setOpen] = useState(true)
 
-  let login_url = window.location.origin+"/djangoapp/login";
+  let login_url = window.location.origin+"/djangoapp/login"; //Send the request to djangoapp/login -> login_user
 
   const login = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); //Since it's a submit button, in order to customize it...
 
     const res = await fetch(login_url, {
         method: "POST",
@@ -26,7 +26,7 @@ const Login = ({ onClose }) => {
     });
     
     const json = await res.json();
-    if (json.status != null && json.status === "Authenticated") {
+    if (json.status != null && json.status === "Authenticated") { //Means you are authenticated
         sessionStorage.setItem('username', json.userName);
         setOpen(false);        
     }
@@ -36,7 +36,7 @@ const Login = ({ onClose }) => {
 };
 
   if (!open) {
-    window.location.href = "/";
+    window.location.href = "/"; //Routes the user to Home.html
   };
   
 
